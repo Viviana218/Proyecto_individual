@@ -1,0 +1,97 @@
+* {
+    margin: 0px auto;
+    padding: 0px auto;
+}
+
+#container {
+    margin-top: 30px;
+    background-image: url("images/fondo.jpg");
+    background-position: center;
+    background-size:auto;
+    padding: 30px;
+    background-repeat: no-repeat;
+}
+
+nav {
+    background-image: url("images/nav.jpg");
+    height: 50px;
+    width: 800px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+nav img 
+{
+    margin-right: 5px;
+}
+
+main #row {
+    margin-top: 5px;
+    background-image: url("images/fondo\ registro\ 2.jpg");
+    background-position: center;
+    background-size:auto;
+    background-repeat: repeat;
+    
+}
+
+.col-8 {
+    border: 2px solid black;
+    border-radius: 30px;    
+    
+}
+
+.col-8 form {
+    margin: 0px 30px 0px 30px;
+}
+
+.col-8 h2 {
+    margin-top: 10px;
+    text-align: center;
+    text-shadow: 0.1em 0.1em 0.2em white;
+    color: black;
+}
+
+.col-8 b {
+    font-style: italic;
+}
+
+
+
+footer {
+    width: 100%;
+    position:fixed;
+    bottom:0px;
+    left: 0px;
+    
+}
+
+.politica {
+    display: flex;
+    margin: 0px auto;
+    justify-content: space-around;
+    border: 3px solid gray;
+    padding: 15px;
+    align-items: center;
+    background-color: white;
+}
+
+footer img {
+    width: 3rem;
+}
+
+footer p {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.button {
+    border: 3px solid black;
+    background-color: darkturquoise;
+    color: white;
+    box-shadow: 3px 3px black;
+    padding: 5px 15px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+}

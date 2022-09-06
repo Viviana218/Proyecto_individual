@@ -1,0 +1,77 @@
+* {
+    margin: 0px auto;
+    padding: 0px auto;
+}
+
+.container1 nav {
+    background-image: url("images/nav.jpg");
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.icono {
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    background-color: aliceblue;
+    margin-right: 5px;
+}
+
+
+.boton {
+    width: auto;
+    height: 30px;
+    border: 3px solid lightseagreen;
+    background-color: lightseagreen;
+    color: white;
+    text-decoration: none;
+    border-radius: 60px;
+    padding: 2px 10px;
+    margin-right: 10px;
+}
+
+.boton1 {
+    width: auto;
+    height: 30px;
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 60px;
+    padding: 2px 10px;
+    margin-top: 10px;
+}
+
+.pdf {
+    height: 30px;
+}
+
+.table-hover {
+    border: 2px solid gray;
+    text-align: center;
+    
+}
+
+h3 {
+    font-weight: bold;
+    text-shadow: 0.1em 0.1em 0.2em rgb(174, 171, 171);
+    color:darkslategrey
+}
+
+.btn-info {
+    background-color: darkcyan;
+    border-color: darkcyan;
+    color:aliceblue;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    font-weight:bold;
+}
+
+.color {
+    background-color: darkcyan;
+    color: white;
+}

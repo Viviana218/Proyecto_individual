@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='nueva_hc_style.css')}}">
+    <title>Nueva Historia Clínica</title>
+</head>
+<body>
+    <div class="container" id="hc_nav">
+        <header>
+            <nav class="d-flex justify-content-between align-items-center"> 
+                <h3>Bienvenid@, {{user.nombres}} </h3>
+                <a href="/historias" class="btn btn-info m-4"><img src="{{url_for('static', filename='images/hc.jpg')}}" alt="historias" class="icono" />Historias</a>
+                <a href="/dashboard" class="btn btn-info m-4"><img src="{{url_for('static', filename='images/perfil.png')}}"alt="perfil" class="icono" />Mi Perfil</a>
+                <a href="/" class="btn btn-secondary m-4"><img src="{{url_for('static', filename='images/salida.png')}}" alt="salida" class="icono" />Salida Segura</a>
+
+            </nav>
+        </header>
+        <main>
+            <div class="row">
+                <div class="col-8" id="hc">
+                    <div>
+                        <h3 class="add_hc">Nueva Historia Clínica</h3>
+                    </div>
+                    {% with messages = get_flashed_messages(category_filter=['hc']) %}
+                        {% if messages %}
+                            <div class="alert alert-danger">
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                    <form action="/add_hc" method="post" enctype="multipart/form-data">
+                        <input type="hidden" value="{{user.id}}" name="user_id">
+                            <div class="form-group">
+                                <label for="fecha2"><b>Fecha:</b></label>
+                                <input type="date" id="fecha2" name="fecha2" class="form-control">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="origen"><b>Origen:</b></label>
+                                <input type="text" id="origen" name="origen" class="form-control">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="documento2"><b>Documento:</b></label>
+                                <input type="file" id="documento2" name="documento2" class="form-control">
+                            </div>
+                            
+                            
+                            <div class="d-grip gap-2 d-md-flex justify-content-md-center">
+                                <input type="submit" value="Agregar" class="btn btn-dark m-4">
+
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container1" id="pend_nav">
+        <header>
+            <nav class="d-flex justify-content-between align-items-center"> 
+                <h3>Bienvenid@, {{user.nombres}}</h3>
+                <a href="/" class="btn btn-secondary m-4"><img src="{{url_for('static', filename='images/salida.png')}}" alt="salida" class="icono" />Salida Segura</a>
+            </nav>
+        </header>
+        <main>
+            <div class="d-flex justify-content-evenly align-items-center" id="links">
+                <a href="/examenes" class="btn btn-info m-4"><img src="{{url_for('static', filename='images/lab.jpg')}}" alt="examenes" class="icono" />Examenes de laboratorio</a>
+                <a href="/imagenes" class="btn btn-info m-4"><img src="{{url_for('static', filename='images/radio.webp')}}" alt="imagenes" class="icono" />Imágenes Diagnósticas</a>
+                <a href="/historias" class="btn btn-info m-4"><img src="{{url_for('static', filename='images/hc.jpg')}}" alt="historias" class="icono" />Historias Clínicas</a>
+                <a href="/ordenes" class="btn btn-info m-4"><img src="{{url_for('static', filename='images/ordenes.jpg')}}" alt="ordenes" class="icono" />Órdenes Médicas</a>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-9">
+                    <div class="d-flex justify-content-evenly align-items-center">
+                        <input type="hidden" value="{{user.id}}" name="user_id">
+                        <input type="hidden" value="{{pendientes.id}}" name="id">
+                        <h3>Mis pendientes en Salud</h3>
+                        <a href="/nuevo_pendiente" class="btn btn-success m-4"><img src="{{url_for('static', filename='images/pendiente.jpg')}}" alt="pendiente" class="icono" />Agregar Pendiente</a>
+                    </div>
+                    <div id="table">
+                        <table class="table table-hover responsive">
+                            <theader>
+                                <tr class="color">
+                                    <th>Clase de Pendiente</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Lugar</th>
+                                    <th>Detalles</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </theader>
+                            <tbody>
+                                {% for pendiente in pendientes %}
+                                    <tr>
+                                        <td>{{pendiente.clase}}</td>
+                                        <td>{{pendiente.fecha3}}</td>
+                                        <td>{{pendiente.hora}}</td>
+                                        <td>{{pendiente.lugar}}</td>
+                                        <td>{{pendiente.detalles}}</td>
+                                        <td>
+                                            <a href="/editar_pend/{{pendiente.id}}" class="boton">Editar</a>
+                                            <a href="/borrar_pend/{{pendiente.id}}" class="boton1">Borrar</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>       
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10" id="dates">
+                    <div class="d-flex justify-content-evenly align-items-center">
+                        <h3 class="dates">Link de Interés</h3>
+                    </div>
+                    <table class="table table-hover">
+                        <theader>
+                            <tr class="color">
+                                <th>Servicio</th>
+                                <th>Institución</th>
+                                <th>Teléfonos contacto</th>
+                                <th>Link</th>
+                            </tr>
+                        </theader>
+                        <tbody>
+                            <tr>
+                                <td>Laboratorio Clinico</td>
+                                <td><img src="{{url_for('static', filename='images/centrolab.webp')}}" alt="centrolab" class="centrolab"></td>
+                                <td>604 6042204</td>
+                                <td><a href="https://centrolab.com.co">https://centrolab.com.co</td>
+                            </tr>
+                            <tr>
+                                <td>Ayudas Diagnósticas</td>
+                                <td><img src="{{url_for('static', filename='images/Logo-IVS.png')}}" alt="centrolab" class="centrolab"></td>
+                                <td>604 3228700 – 604 3228600</td>
+                                <td><a href="https://www.imagenesdevidaysalud.com/">https://www.imagenesdevidaysalud.com/</td>
+                            </tr>
+                            <tr>
+                                <td>Especialistas</td>
+                                <td><img src="{{url_for('static', filename='images/americas.png')}}" alt="centrolab" class="centrolab"></td>
+                                <td>3135180647 - 604 342 10 10</td>
+                                <td><a href="https://clinicalasamericas.lasamericas.com.co/">https://clinicalasamericas.lasamericas.com.co/</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+        </main>
+        
+    </div>
+</body>
+
+</html>

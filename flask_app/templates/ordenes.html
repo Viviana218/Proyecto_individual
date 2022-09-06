@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='ordenes_style.css')}}">
+    <title>Ordenes</title>
+</head>
+<body>
+    <div class="container1" id="nav">
+        <header>
+            <nav class="d-flex justify-content-between align-items-center"> 
+                <h3>Bienvenid@, {{user.nombres}} </h3>
+                <a href="/dashboard" class="btn btn-info m-4"><img src="{{url_for('static', filename='images/perfil.png')}}" alt="perfil" class="icono" />Mi Perfil</a>
+                <a href="/" class="btn btn-secondary m-4"><img src="{{url_for('static', filename='images/salida.png')}}" alt="salida" class="icono" />Salida Segura</a>
+            </nav>
+        </header>
+        <main>
+            <div class="row">
+                <div class="col-10" id="dates">
+                    <div class="d-flex justify-content-evenly align-items-center">
+                        <h3>Órdenes Médicas</h3>
+                        <a href="/nueva_orden" class="btn btn-success m-4"><img src="{{url_for('static', filename='images/ordenes.jpg')}}" alt="ordenes" class="icono" />Agregar Orden Médica</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-10" id="dates">
+                    <input type="hidden" value="{{user.id}}" name="user_id">
+                    <input type="hidden" value="{{ordenes.id}}" name="id">
+                        <table class="table table-hover responsive">
+                            <theader>
+                                <tr class="color">
+                                    <th>Servicio</th>
+                                    <th>Prestador</th>
+                                    <th>Teléfonos Contacto</th>
+                                    <th>Dirección</th>
+                                    <th>Documento</th>
+                                    <th>Cita Solicitada</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </theader>
+                            <tbody>
+                                {% for orden in ordenes %}
+                                    <tr class="table align-middle">
+                                        <td>{{orden.servicio}}</td>
+                                        <td>{{orden.prestador}}</td>
+                                        <td>{{orden.telefonos}}</td>
+                                        <td>{{orden.direccion}}</td>
+                                        <td><a href="{{url_for ('static', filename='documento/'+orden.documento3)}}" download><img src="{{url_for('static', filename='images/pdf.png')}}" alt="pdf" class="pdf"/><br>Descargar</a></td>
+                                        <td {% if orden.solicitada == "No" %} style="color: red;" {% endif %}>
+                                            {{orden.solicitada}}
+                                        </td>
+                                        <td>
+                                            <a href="/editar_om/{{orden.id}}" class="boton">Editar</a>
+                                            <a href="/borrar_om/{{orden.id}}" class="boton1">Borrar</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                            </tbody>
+                        </table>       
+                </div>
+            </div>
+            
+        </main>
+        
+    </div>
+</body>
+
+</html>

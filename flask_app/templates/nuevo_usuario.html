@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='nuevo_usuario_style.css')}}">
+    <title>Nuevo Usuario</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="d-flex justify-content-between align-items-center"> 
+                <h2>Bienvenid@</h2>
+                <h5>a partir de ahora tu vida será más fácil!</h5>
+                <a href="/" class="btn btn-secondary m-4"><img src="{{url_for('static', filename='images/inicio.png')}}" alt="inicio" />Inicio</a>
+            </nav>
+        </header>
+        <main>
+            <div class="row" >
+                <div class="col-8" id="row">
+                    <div>
+                        <h2>Registrate</h2>
+
+                       
+                        <div id="alertMessage"></div>
+                        
+                    </div>
+                    <form action="/add_usuario" method="post" id="registro_js">
+                        <div class="form-group">
+                            <label for="nombres"><b>Nombres:</b></label>
+                            <input type="text" id="nombres" name="nombres" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidos"><b>Apellidos:</b></label>
+                            <input type="text" id="apellidos" name="apellidos" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><b>E-mail:</b></label>
+                            <input type="text" id="email" name="email" class="form-control">
+                        </div>
+                        <div class= "d-flex justify-content-between align-items-end">
+                            <div class="col-11">
+                                <div class="form-group">
+                                    <label for="password"><b>Contraseña:</b></label>
+                                    <input type="password" id="password" name="password" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <img src="{{url_for('static', filename='images/llave.png')}}" alt="llave">
+                            </div>
+                        </div>
+                        <div class= "d-flex justify-content-between align-items-end">
+                            <div class="col-11">
+                                <div class="form-group">
+                                    <label for="confirm_password"><b>Confirma contraseña:</b></label>
+                                    <input type="password" id="confirm_password" name="confirm_password" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <img src="{{url_for('static', filename='images/llave.png')}}" alt="llave">
+                            </div>
+                        </div>
+                        <br>
+                                                
+                        <div class="d-grip gap-2 d-md-flex justify-content-md-center">
+                            <input id="registro" type="submit" value="Registrarme" disabled class="btn btn-success m-4">
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="row" >
+                <div class="col-7" id="row">
+                    <div class="politica">
+                        <img src="{{url_for('static', filename='images/alert-dark.png')}}" alt="alert">
+                        <div>
+                            <p>Al dar click en Aceptar, usted indica que acepta nuestra política de tratamiento de datos personales <a href="{{url_for('static', filename='documentos/Politica_tratamiento_datos.pdf')}}">Consultar</a></p>
+                        </div>   
+                        <div>
+                            <a class= "button" onclick="aceptaPolitica()" href="#">Aceptar</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div> 
+        </footer>
+
+        
+    </div>
+    <script src="{{url_for('static', filename='js/registro.js')}}"></script>
+</body>
+
+</html>
